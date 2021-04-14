@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Working with API'S</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ <link rel="stylesheet" href="main.css">
+  <script src="main-solution.js" async></script>
+</head>
+
+<body>
+    <div class="results">
+        <div id="cat_result" class="result">
+            <p>Random Cat Placeholder</p>
+        </div>
+        <div id="dog_result" class="result">
+            <p>Random Dog Placeholder</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="cat_btn">Get Cat</button>
+        <button id="dog_btn">Get Dog</button>
+    </div>
+
+    <h3 style="text-align: center;"> Instagram Feed Search</h3>
+
+    <form autocomplete="off" id="myform">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="submit" value="Search">
+    </form>
+    <div id="instagram-feed-demo"></div>
+</body>
+
+<script>
+    $("#myform").submit(function(e){
+        e.preventDefault()
+        var username = $("username").val()
+        $.instagramFeed({
+            'username': username,
+            'display_biography': true,
+            'display_igtv': true,
+            'display_profile': true,
+            'items': 25,
+            'container': "#instagram-feed-demo"
+        });
+    })
+</script>
+<script>
+    $(document.ready(function(){
+        $("#myForm").submit(function(e){
+            e.preventDefault();
+            var username = $("useranem").val();
+
+            $.instagramFeed({
+                'username': username,
+                'container': "#instagram-feed-demo",
+                'display-profile': true,
+                'display-biography': true,
+                'display_igtv': true
+            })
+        })
+    }))
+</script>
+</html>
